@@ -70,17 +70,6 @@ openssl x509 \
   -days 3650 >> $LOG_FILE 2>&1
   
 echo "ok5"
-  
-/*   cat <<EOF > $CONFIG_DIR/lamassu.json
-{
-  "lamassuCaPath": "$LAMASSU_CA_PATH",
-  "caPath": "$CA_PATH",
-  "certPath": "$SERVER_CERT_PATH",
-  "keyPath": "$SERVER_KEY_PATH",
-  "hostname": "$IP",
-  "logLevel": "info",
-  "migrateStatePath": "$MIGRATE_STATE_PATH",
-} */
 
 echo "ok6"
 
