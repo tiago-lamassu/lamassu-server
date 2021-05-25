@@ -49,6 +49,8 @@ openssl req -new \
   -config <(cat /etc/ssl/openssl.cnf \
       <(printf "[SAN]\nsubjectAltName=IP.1:$IP")) \
   >> $LOG_FILE 2>&1
+  
+echo "ok4"
 
 openssl x509 \
   -req -in /tmp/Lamassu_OP.csr.pem \
@@ -61,6 +63,8 @@ openssl x509 \
   -extensions SAN \
   -days 3650 >> $LOG_FILE 2>&1
   
+echo "ok5"
+  
   cat <<EOF > $CONFIG_DIR/lamassu.json
 {
   "lamassuCaPath": "$LAMASSU_CA_PATH",
@@ -72,8 +76,10 @@ openssl x509 \
   "migrateStatePath": "$MIGRATE_STATE_PATH",
 }
 
+echo "ok6"
+
 supervisorctl restart lamassu-server lamassu-admin-server >> $LOG_FILE 2>&1
 
-echo "Finished"
+echo "Finished and restarted"
 
 rm /tmp/Lamassu_OP.csr.pem
