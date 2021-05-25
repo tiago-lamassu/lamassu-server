@@ -44,6 +44,8 @@ openssl genrsa \
  
 echo "ok3"
 
+IP=$(ifconfig eth0 | grep "inet" | grep -v "inet6" | awk -F: '{print $2}' | awk '{print $1}')
+
 openssl req -new \
   -key $SERVER_KEY_PATH \
   -out /tmp/Lamassu_OP.csr.pem \
