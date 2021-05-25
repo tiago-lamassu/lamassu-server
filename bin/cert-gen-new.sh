@@ -6,7 +6,6 @@ export LOG_FILE=/tmp/install.log
 CERT_DIR=/etc/ssl/certs
 KEY_DIR=/etc/ssl/private
 CONFIG_DIR=/etc/lamassu
-MIGRATE_STATE_PATH=$CONFIG_DIR/.migrate
 LAMASSU_CA_PATH=$CERT_DIR/Lamassu_CA.pem
 CA_KEY_PATH=$KEY_DIR/Lamassu_OP_Root_CA.key
 CA_PATH=$CERT_DIR/Lamassu_OP_Root_CA.pem
