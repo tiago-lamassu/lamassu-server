@@ -22,8 +22,6 @@ decho () {
 openssl genrsa \
   -out $CA_KEY_PATH \
   4096 >> $LOG_FILE 2>&1
-  
-echo "ok1"
 
 openssl req \
   -x509 \
@@ -36,13 +34,9 @@ openssl req \
   -subj "/C=IS/ST=/L=Reykjavik/O=Lamassu Operator CA/CN=operator.lamassu.is" \
   >> $LOG_FILE 2>&1
 
-echo "ok2"
-  
 openssl genrsa \
   -out $SERVER_KEY_PATH \
   4096 >> $LOG_FILE 2>&1
- 
-echo "ok3"
 
 IP=$(ifconfig eth0 | grep "inet" | grep -v "inet6" | awk -F: '{print $2}' | awk '{print $1}')
 
@@ -55,8 +49,6 @@ openssl req -new \
   -config <(cat /etc/ssl/openssl.cnf \
       <(printf "[SAN]\nsubjectAltName=IP.1:$IP")) \
   >> $LOG_FILE 2>&1
-  
-echo "ok4"
 
 openssl x509 \
   -req -in /tmp/Lamassu_OP.csr.pem \
@@ -68,10 +60,6 @@ openssl x509 \
       <(printf "[SAN]\nsubjectAltName=IP.1:$IP")) \
   -extensions SAN \
   -days 3650 >> $LOG_FILE 2>&1
-  
-echo "ok5"
-
-echo "ok6"
 
 supervisorctl restart lamassu-server lamassu-admin-server >> $LOG_FILE 2>&1
 
