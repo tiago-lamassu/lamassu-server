@@ -71,7 +71,7 @@ openssl x509 \
   
 echo "ok5"
   
-  cat <<EOF > $CONFIG_DIR/lamassu.json
+/*   cat <<EOF > $CONFIG_DIR/lamassu.json
 {
   "lamassuCaPath": "$LAMASSU_CA_PATH",
   "caPath": "$CA_PATH",
@@ -80,7 +80,7 @@ echo "ok5"
   "hostname": "$IP",
   "logLevel": "info",
   "migrateStatePath": "$MIGRATE_STATE_PATH",
-}
+} */
 
 echo "ok6"
 
