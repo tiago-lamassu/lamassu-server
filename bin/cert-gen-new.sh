@@ -75,6 +75,6 @@ echo "ok6"
 
 supervisorctl restart lamassu-server lamassu-admin-server >> $LOG_FILE 2>&1
 
-echo "Finished and restarted"
-
 rm /tmp/Lamassu_OP.csr.pem
+
+echo "Finished and restarted"
