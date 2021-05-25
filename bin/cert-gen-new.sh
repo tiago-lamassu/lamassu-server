@@ -18,6 +18,8 @@ echo "Generating SSL certificates..."
 openssl genrsa \
   -out $CA_KEY_PATH \
   4096 >> $LOG_FILE 2>&1
+  
+echo "ok1"
 
 openssl req \
   -x509 \
@@ -30,9 +32,13 @@ openssl req \
   -subj "/C=IS/ST=/L=Reykjavik/O=Lamassu Operator CA/CN=operator.lamassu.is" \
   >> $LOG_FILE 2>&1
 
+echo "ok2"
+  
 openssl genrsa \
   -out $SERVER_KEY_PATH \
   4096 >> $LOG_FILE 2>&1
+ 
+echo "ok3"
 
 openssl req -new \
   -key $SERVER_KEY_PATH \
@@ -65,6 +71,8 @@ openssl x509 \
   "logLevel": "info",
   "migrateStatePath": "$MIGRATE_STATE_PATH",
 }
+
+supervisorctl restart lamassu-server lamassu-admin-server >> $LOG_FILE 2>&1
 
 echo "Finished"
 
