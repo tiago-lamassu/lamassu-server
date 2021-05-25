@@ -7,22 +7,12 @@ KEY_DIR=/etc/ssl/private
 CONFIG_DIR=/etc/lamassu
 MIGRATE_STATE_PATH=$CONFIG_DIR/.migrate
 LAMASSU_CA_PATH=$CERT_DIR/Lamassu_CA.pem
-
-
-MNEMONIC_DIR=$CONFIG_DIR/mnemonics 
-MNEMONIC_FILE=$MNEMONIC_DIR/mnemonic.txt 
-BACKUP_DIR=/var/backups/postgresql
-BLOCKCHAIN_DIR=/mnt/blockchains
-OFAC_DATA_DIR=/var/lamassu/ofac
-ID_PHOTO_CARD_DIR=/opt/lamassu-server/idphotocard
-FRONTCAMERA_DIR=/opt/lamassu-server/frontcamera
-
 CA_KEY_PATH=$KEY_DIR/Lamassu_OP_Root_CA.key
 CA_PATH=$CERT_DIR/Lamassu_OP_Root_CA.pem
 SERVER_KEY_PATH=$KEY_DIR/Lamassu_OP.key
 SERVER_CERT_PATH=$CERT_DIR/Lamassu_OP.pem
 
-decho "Generating SSL certificates..."
+echo "Generating SSL certificates..."
 
 openssl genrsa \
   -out $CA_KEY_PATH \
