@@ -14,6 +14,11 @@ SERVER_CERT_PATH=$CERT_DIR/Lamassu_OP.pem
 
 echo "Generating SSL certificates..."
 
+decho () {
+  echo `date +"%H:%M:%S"` $1
+  echo `date +"%H:%M:%S"` $1 >> $LOG_FILE
+}
+
 openssl genrsa \
   -out $CA_KEY_PATH \
   4096 >> $LOG_FILE 2>&1
