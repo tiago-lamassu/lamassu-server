@@ -53,5 +53,18 @@ openssl x509 \
       <(printf "[SAN]\nsubjectAltName=IP.1:$IP")) \
   -extensions SAN \
   -days 3650 >> $LOG_FILE 2>&1
+  
+  cat <<EOF > $CONFIG_DIR/lamassu.json
+{
+  "lamassuCaPath": "$LAMASSU_CA_PATH",
+  "caPath": "$CA_PATH",
+  "certPath": "$SERVER_CERT_PATH",
+  "keyPath": "$SERVER_KEY_PATH",
+  "hostname": "$IP",
+  "logLevel": "info",
+  "migrateStatePath": "$MIGRATE_STATE_PATH",
+}
+
+echo "Finished"
 
 rm /tmp/Lamassu_OP.csr.pem
