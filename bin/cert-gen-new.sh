@@ -12,6 +12,18 @@ CA_PATH=$CERT_DIR/Lamassu_OP_Root_CA.pem
 SERVER_KEY_PATH=$KEY_DIR/Lamassu_OP.key
 SERVER_CERT_PATH=$CERT_DIR/Lamassu_OP.pem
 
+echo "Backing up SSL certificates..."
+
+cd /root/backups
+mkdir cert_backup
+cd cert_backup
+
+tar -czvf etc_ssl_certs.tar.gz /etc/ssl/certs /root/backups
+tar -czvf etc_ssl_private.tar.gz /etc/ssl/private
+tar -czvf etc_lamassu.tar.gz /etc/lamassu
+
+cd
+
 echo "Generating SSL certificates..."
 
 decho () {
