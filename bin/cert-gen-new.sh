@@ -25,7 +25,7 @@ tar -czvf etc_lamassu.tar.gz $CONFIG_DIR
 
 cd
 
-echo "Generating SSL certificates..."
+echo "Generating updated SSL certificates..."
 
 decho () {
   echo `date +"%H:%M:%S"` $1
