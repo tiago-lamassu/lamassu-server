@@ -19,9 +19,9 @@ cd /root/backups
 mkdir cert_backup
 cd cert_backup
 
-tar -czvf etc_ssl_certs.tar.gz /etc/ssl/certs
-tar -czvf etc_ssl_private.tar.gz /etc/ssl/private
-tar -czvf etc_lamassu.tar.gz /etc/lamassu
+tar -czvf etc_ssl_certs.tar.gz $CERT_DIR
+tar -czvf etc_ssl_private.tar.gz $KEY_DIR
+tar -czvf etc_lamassu.tar.gz $CONFIG_DIR
 
 cd
 
