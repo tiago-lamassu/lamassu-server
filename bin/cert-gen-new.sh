@@ -14,6 +14,7 @@ SERVER_CERT_PATH=$CERT_DIR/Lamassu_OP.pem
 
 echo "Backing up SSL certificates..."
 
+mkdir -p /root/backups
 cd /root/backups
 mkdir cert_backup
 cd cert_backup
